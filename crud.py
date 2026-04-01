@@ -17,7 +17,6 @@ def create_task(name, title, subject, due_date, description):
     result = tasks.insert_one(hw)
     return str(result.inserted_id)
 
-
 def get_all_hw():
     return list(tasks.find({}, {"_id": 0}))
 
@@ -40,14 +39,15 @@ def delete_hw(title):
     return result.deleted_count
 
 
+
 # Create
-create_task("Bob", "Science Project", "Science", datetime(2026, 4, 15), "Build a volcano")
+create_task("Josh", "Hackathon", "STEM", datetime(2026, 4, 15), "Build RedPin.")
 
 # Read
 print(get_all_hw())
 
 # Update
-update_hw("Science Project", {"subject": "Physics"})
+update_hw("Hackathon", {"subject": "STEM"})
 
 # Delete
-delete_hw("Science Project")
+delete_hw("Hackathon")
