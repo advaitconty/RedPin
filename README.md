@@ -1,5 +1,5 @@
 # RedPin
 A bulletin board system to share homework
 
-GUI - 
-CRUD - @advaitconty
+GUI - @advaitconty
+CRUD - @jefanjuna
