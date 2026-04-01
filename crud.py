@@ -2,11 +2,11 @@ from pymongo import MongoClient
 from datetime import datetime
 
 client = MongoClient("mongodb://localhost:27017/")
-db = client["school"]
-tasks = db["tasks"]
+db = client["asrjc"]
+tasks = db["hw"]
 
 def create_task(name, title, subject, due_date, description):
-    task = {
+    hw = {
         "name": name,
         "title": title,
         "subject": subject,
@@ -14,20 +14,20 @@ def create_task(name, title, subject, due_date, description):
         "description": description
     }
     
-    result = tasks.insert_one(task)
+    result = tasks.insert_one(hw)
     return str(result.inserted_id)
 
 
-def get_all_tasks():
+def get_all_hw():
     return list(tasks.find({}, {"_id": 0}))
 
-def get_tasks_by_name(name):
+def get_hw_by_name(name):
     return list(tasks.find({"name": name}, {"_id": 0}))
 
-def get_task(title):
+def get_hw(title):
     return tasks.find_one({"title": title}, {"_id": 0})
 
-def update_task(title, updated_data):
+def update_hw(title, updated_data):
     result = tasks.update_one(
         {"title": title},
         {"$set": updated_data}
@@ -35,7 +35,7 @@ def update_task(title, updated_data):
     
     return result.modified_count
 
-def delete_task(title):
+def delete_hw(title):
     result = tasks.delete_one({"title": title})
     return result.deleted_count
 
@@ -44,10 +44,10 @@ def delete_task(title):
 create_task("Bob", "Science Project", "Science", datetime(2026, 4, 15), "Build a volcano")
 
 # Read
-print(get_all_tasks())
+print(get_all_hw())
 
 # Update
-update_task("Science Project", {"subject": "Physics"})
+update_hw("Science Project", {"subject": "Physics"})
 
 # Delete
-delete_task("Science Project")
+delete_hw("Science Project")
