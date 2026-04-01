@@ -41,13 +41,13 @@ def delete_hw(title):
 
 
 # Create
-create_task("Josh", "Hackathon", "STEM", datetime(2026, 4, 15), "Build RedPin.")
+# create_task("Josh", "Hackathon", "STEM", datetime(2026, 4, 15), "Build RedPin.")
 
 # Read
-print(get_all_hw())
+# print(get_all_hw())
 
 # Update
-update_hw("Hackathon", {"subject": "STEM"})
+# update_hw("Hackathon", {"subject": "STEM"})
 
 # Delete
-delete_hw("Hackathon")
+# delete_hw("Hackathon")
